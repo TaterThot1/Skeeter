@@ -39,7 +39,7 @@ Step 3- Go to the bottom of the code and replace "*Your_Bot_Token*" with your bo
 **Part 1 of 1**
 Step 1- Open linux terminal.
 
-Step 2- Use the command line [*cd Skeeter*].
+Step 2- Use the command line [*cd Skeeter-main*].
 
 Step 3- Use the command line [*node index.js*]
 
