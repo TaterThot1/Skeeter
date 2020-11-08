@@ -1,4 +1,4 @@
-const { getUserFromMention } = require('../util/getUser')
+const { getUserFromMention } = require('../utility/getUser')
 
 module.exports = {
 	name: 'ban',
@@ -10,7 +10,7 @@ module.exports = {
 		const member = getUserFromMention(args[0], client);
 
 		if (!member) {
-			return message.reply('You need to mention the member you want to ban him');
+			return message.reply('No member was mentioned.');
 		}
 
 		if (!message.member.hasPermission("MANAGE\_MEMBERS")) {
