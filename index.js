@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
-const Client = require('./Client/Client');
+const Client = require('./client/Client');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -43,9 +43,9 @@ client.on('message', async message => {
 		}
 	} catch (error) {
 		console.error(error);
-		message.reply('Sorry there was an error executing that command!');
+		message.reply('An error has occured, please try again later.');
 	}
 });
 
 
-client.login('Your Bot Token');
+client.login('Your_Bot_Token');
