@@ -1,4 +1,4 @@
-const { getUserFromMention } = require('../utility/getUser')
+const { getUserFromMention } = require('../util/getUser')
 
 module.exports = {
 	name: 'ban',
