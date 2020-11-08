@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [ban,purge],
+  "keywords": [ban,purge,help],
   "author": "TaterThots",
-  "license": "",
+  "license": "CC0-1.0",
   "dependencies": {
     "discord.js": "^12.4.1",
     "npm": "^6.14.8",
