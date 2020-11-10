@@ -18,7 +18,14 @@ module.exports = {
 		}
 
 		return message.guild.members.ban(member)
-			.then(() => message.reply(`${member.username} was banned.`))
+			.then(() => message.reply(`Banned ${member.username}`))
 			.catch(error => message.reply('Sorry, an error has unfortunately occured.'));
 	},
 };
+  clientPerms: {
+    guild: ['banMembers']
+  }
+  userPerms: {
+    guild: ['kickMembers']
+  }
+  disableDM: true
