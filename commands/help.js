@@ -16,3 +16,4 @@ ${command.description}: \n`;
 		message.channel.send(str);
 	},
 };
+
