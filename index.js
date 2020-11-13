@@ -49,3 +49,4 @@ client.on('message', async message => {
 
 
 client.login('Your_Bot_Token');
+//Your bot token goes here
