@@ -15,6 +15,7 @@ module.exports = {
         { name: 'kick' , value: 'Kick a user'},
 		{ name: 'purge' , value: 'Delete the last messages sent in chats.'},
         { name: 'userinfo' , value: 'Get information about a user.'},
+        { name: 'warn' , value: 'warn a user. separate your reason with ( - ) or ( _ ) '},
 	)
 	.setTimestamp()
 	.setFooter('Help');
