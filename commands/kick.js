@@ -11,7 +11,9 @@ module.exports = {
         if (!user) {
 			return message.reply('No member was mentioned.');
 		}
-
+        if (!message.member.hasPermission("kickMembers")) {
+			return message.reply('You dont have the correct perms to use this command');
+		}
 		return tuser.kick(user)
 			.then(() => message.reply(`Kicked ${user.username}`));
 	},
