@@ -1,19 +1,24 @@
 const fs = require('fs')
-
+const Discord = require('discord.js');
 module.exports = {
 	name: 'help',
-	description: 'A list of commands.',
+	description: 'List of commands.',
 	execute(message) {
 		let str = '';
-		const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+        const help = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('Command List')
+	.setAuthor(`${message.guild.name}`, `${message.guild.iconURL({ format: "png", dynamic: true })}`)
+	.setDescription('Prefix %')
+    .addFields(
+		{ name: 'ban' , value: 'Ban a member'},
+        { name: 'kick' , value: 'Kick a user'},
+		{ name: 'purge' , value: 'Delete the last messages sent in chats.'},
+        { name: 'userinfo' , value: 'Get information about a user.'},
+	)
+	.setTimestamp()
+	.setFooter('Help');
 
-		for (const file of commandFiles) {
-			const command = require(`./${file}`);
-			str += `~%${command.name}
-${command.description}: \n`;
-		}
-
-		message.channel.send(str);
-	},
+message.channel.send(help)
+	}
 };
-
