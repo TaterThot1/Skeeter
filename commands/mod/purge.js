@@ -1,7 +1,15 @@
-module.exports = {
-	name: 'purge',
-	description: 'Delete the last messages sent in chats 2-100.',
-	async execute(message) {
+    const { Command } = require('discord.js-commando');
+module.exports = class PurgeCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'purge',
+			aliases: ['purge'],
+			group: 'mod',
+			memberName: 'purge',
+			description: 'delete messages in chat.',
+		});
+	}
+	async run(message) {
 		const args = message.content.split(' ');
 		let deleteCount = 0;
 		try {
@@ -21,5 +29,5 @@ module.exports = {
 		});
 		message.channel.bulkDelete(fetched)
 			.catch(error => message.reply(`Messages where not deleted: ${error}`));
-	},
+	}
 };
