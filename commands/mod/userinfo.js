@@ -1,10 +1,18 @@
-const Client = require('../client/Client');
+const Client = require('../../client/Client');
 const Discord = require('discord.js');
-const getUserFromMention = require('../util/getUser');
-module.exports = {
-	name: 'userinfo',
-	description: 'Get information about a user.',
-    execute(message, client) {
+const getUserFromMention = require('../../util/getUser');
+    const { Command } = require('discord.js-commando');
+module.exports = class InfoCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'userinfo',
+			aliases: ['userinfo'],
+			group: 'mod',
+			memberName: 'userinfo',
+			description: 'info about user.',
+		});
+	}
+    run(message, client) {
        const Discord = require('discord.js')
        const tuser = message.guild.member(message.mentions.users.first());
        const user = message.mentions.users.first();
