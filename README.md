@@ -17,7 +17,7 @@ Step 1- Download a zip package of the repository.
 
 Step 2- Unzip the package.
 
-Step 3- Open linux terminal and use [*npm i discord.js*] then [*npm i node.js*]
+Step 3- Open linux terminal and use [*npm i discord.js*] next [*npm i node.js*] then [*npm i discordjs/Commando*]
 
 **Part 2 of 3**
 
@@ -31,9 +31,13 @@ Step 3- Replace "*Your_Bot_Token*" with your bot token.
 
 Step 1- Open {index.js} in a txt/code editor.
 
-Step 2- Copy your bots token.
+Step 2- Copy your id.
 
-Step 3- Go to the bottom of the code and replace "*Your_Bot_Token*" with your bot token.
+Step 3- Go to "*Your_Id*" in the code and replace it with your id.
+
+Step 4- Copy your bots token.
+
+Step 5- Go to the bottom of the code and replace "*Your_Bot_Token*" with your bot token.
 
 # Starting The Bot
 **Part 1 of 1**
