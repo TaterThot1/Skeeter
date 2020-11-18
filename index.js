@@ -13,6 +13,7 @@ client.registry
 	.registerDefaultTypes()
 	.registerGroups([
 		['mod', 'Moderation Commands'],
+		['misc', 'Miscellaneous Commands'],
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands()
