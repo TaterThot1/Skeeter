@@ -20,6 +20,11 @@ module.exports = class AnnounceCommand extends Command {
        const args = message.content.slice(prefix.length).trim().split(/ +/);
        let say = args.join(" ").slice(8);
        if (say.length < 1) return message.reply('what is the message???')
+
+       if (!message.member.hasPermission("MANAGE\_MEMBERS")) {
+			return message.reply('I am unable to ban this user.');
+		}
+
        const announce = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('Announcement')
