@@ -1,7 +1,5 @@
-const Client = require('../../client/Client');
 const Discord = require('discord.js');
-const getUserFromMention = require('../../util/getUser');
-    const { Command } = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 module.exports = class InfoCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -12,10 +10,10 @@ module.exports = class InfoCommand extends Command {
 			description: 'info about user.',
 		});
 	}
-    run(message, client) {
-       const Discord = require('discord.js')
-       const tuser = message.guild.member(message.mentions.users.first());
-       const user = message.mentions.users.first();
+    async run (message) {
+       const { guild, channel } = message
+       const user = message.mentions.users.first() || message.member.user
+       const member = guild.members.cache.get(user.id)
        const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('User Info')
@@ -23,9 +21,12 @@ module.exports = class InfoCommand extends Command {
 	.setDescription(`${user.username}`)
 	.setThumbnail(`${user.displayAvatarURL({ format: "png", dynamic: true })}`)
     .addFields(
-		{ name: 'Joined', value: `${tuser.joinedAt}` },
+		{ name: 'Joined', value: `${member.joinedAt}` },
         { name: 'Account Creation Date', value: `${user.createdAt}`},
-		{ name: 'User Id', value: `${user.id}`, inline: true },
+		{ name: 'User Id', value: `${user.id}`},
+        { name: 'Is Staff?' , value: `${member.roles.cache.some(role => role.name === 'Staff')}`, inline: true },
+        { name: 'Role Count', value: `${member.roles.cache.size -1}`, inline: true },
+        { name: 'Is Bot?' , value: `${user.bot}`, inline: true },
 	)
 	.setTimestamp()
 	.setFooter(`${user.tag}`);
