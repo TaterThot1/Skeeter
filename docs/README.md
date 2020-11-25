@@ -35,9 +35,9 @@ Step 2- Copy your id.
 
 Step 3- Go to "*Your_Id*" in the code and replace it with your id.
 
-Step 4- Copy your bots token.
+Step 4- Copy your welcome and log channel names.
 
-Step 5- Go to the bottom of the code and replace "*Your_Bot_Token*" with your bot token.
+Step 5- Go through the code and replace "*Welcome_Channel_Name*" and "*Log_Channel_Name*" with intented channel names.
 
 # Starting The Bot
 **Part 1 of 1**
