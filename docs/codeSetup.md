@@ -9,12 +9,6 @@ const client = new CommandoClient({
 });
 ```
 
-and
-
-```
-client.login('Your_Bot_Token'); //put your bot token here
-```
-
 So firstly you need to copy your id. Your id should be 18 digits long something like this *123456789012345678*
 
 then paste your id in the code
@@ -25,21 +19,16 @@ const client = new CommandoClient({
 	owner: '123456789012345678', //put your id here
 });
 ```
-next copy your bots token from the discord developer page and paste it
-
-```
-client.login('Sample_Token'); //put your bot token here
-```
-
-***Sample_Token*** **is just a place holder, tokens are much longer with a mix of numbers and letters.**
 
 Now moving on to the config.js file look for...
 
 ```
 {
 "prefix": "%",
-"token": "Your_Bot_Token"//Your_Bot_Token_Goes_Here
+"token": "Sample_Token" //put your bot token here
 }
 ```
+next copy your bots token from the discord developer page and paste it
 
-And like the last step in the index.js file just copy and past your bot token
+
+***Sample_Token is just a place holder, tokens are much longer with a mix of numbers and letters.***
