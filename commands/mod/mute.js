@@ -27,12 +27,18 @@ module.exports = class MuteCommand extends Command {
 		if (!message.member.hasPermission("MANAGE\_MEMBERS")) {
 			return message.reply('I am unable to mute this user.');
 		}
+          const args = message.content.slice(prefix.length).trim().split(/ +/);
+       	  let reason = args.join(" ").slice(27);
+     		if (reason.length < 1) return message.reply('what is the reason???')
 
-        member.roles.add(mute);
-        member.roles.remove(remove1);
-        member.roles.remove(remove2);
-        //each time you add a main role remeber to add another member.roles.remove line to remove them
-        return message.reply(`muted ${member}`);
+          let ismuted = member.roles.cache.some(role => role.name === roleName1);
+       		if (ismuted) return message.reply(`sorry but ${member} is already muted`);
+        		member.roles.add(mute);
+        		member.roles.remove(remove1);
+        		member.roles.remove(remove2);
+        		//each time you add a main role remeber to add another member.roles.remove line to remove them
+          return message.reply(`muted ${member}`)
+		.then(() => log.send({embed: {color: '#FF0000', title: 'Mute Log', description: `${member} has been muted for ${reason}.`}}))
     }
 };
 //if @everyone has the perm to type or speak the command wont work
