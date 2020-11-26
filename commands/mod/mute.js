@@ -14,6 +14,9 @@ module.exports = class MuteCommand extends Command {
 		});
 	}
     async run(message, client) {
+     	  const { prefix} = require('../../config.json');
+          const log = message.guild.channels.cache.find(ch => ch.name === 'Log_Channel_Name');
+	  // Replace 'Log_channel_Name' to the name of you log channel.
           let member = message.mentions.members.first();
           let roleName1 = 'Muted';
                           //If yout mute role is named something else put it here
