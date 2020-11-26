@@ -68,12 +68,6 @@ client.once('ready', () => {
 
 });
 
-client.on('guildMemberAdd', member => {
-  let roleName1 = 'Auto_Role';
-  let role = guild.roles.cache.find(x => x.name === roleName1);
-        member.roles.add(role);
-});
-
 client.on('error', console.error);
 
 client.login(token);
@@ -82,4 +76,3 @@ client.login(token);
 // on line 9 change 'Your_ID' with your account id.
 // on lines 26, 35, 44, and 54 change 'Welcome_Channel_Name' with the name of your welcome channel.
 // on lines 27, 36, 45, and 55 change 'Log_Channel_Name' with the name of your log channel.
-// on line 72 change 'Auto_Role' to the name of th role you want to auto give. if you do not want auto role delete lines 70 through 75
