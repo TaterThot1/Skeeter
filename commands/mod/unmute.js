@@ -19,10 +19,10 @@ module.exports = class UnmuteCommand extends Command {
 	              // Replace 'Log_channel_Name' to the name of you log channel.
           let member = message.mentions.members.first();
           let roleName1 = 'Muted';
-                // If you mute role is named differently replace 'Muted' with it.
+                      // If you mute role is named differently replace 'Muted' with it.
           let mute = message.guild.roles.cache.find(x => x.name === roleName1);
           let roleName2 = 'Main_Role';
-                // Replace 'Main_Role' with the name of your server's main role.
+                      // Replace 'Main_Role' with the name of your server's main role.
           let add1 = message.guild.roles.cache.find(x => x.name === roleName2);
 		            if (!message.member.hasPermission("MANAGE\_MEMBERS")) {
 			            return message.reply('I am unable to mute this user.');
