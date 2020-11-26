@@ -70,7 +70,7 @@ client.once('ready', () => {
 
 client.on('guildMemberAdd', member => {
   let roleName1 = 'Auto_Role';
-  let role = message.guild.roles.cache.find(x => x.name === roleName1);
+  let role = guild.roles.cache.find(x => x.name === roleName1);
         member.roles.add(role);
 });
 
