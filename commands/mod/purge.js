@@ -10,6 +10,8 @@ module.exports = class PurgeCommand extends Command {
 		});
 	}
 	async run(message) {
+        const log = message.guild.channels.cache.find(ch => ch.name === 'Log_Channel_Name');
+			// Replace 'Log_Channel_Name' with your servers log channel name.
 		const args = message.content.split(' ');
 		let deleteCount = 0;
 		try {
@@ -29,5 +31,7 @@ module.exports = class PurgeCommand extends Command {
 		});
 		message.channel.bulkDelete(fetched)
 			.catch(error => message.reply(`Messages where not deleted: ${error}`));
+        return message.reply(`purged ${deleteCount} messages`)
+	.then(() => log.send({embed: {color: '#FF0000', title: 'Message Log', description: `${deleteCount} messages purged in ${message.channel}.`}}))
 	}
 };
