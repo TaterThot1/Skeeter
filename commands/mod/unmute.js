@@ -25,7 +25,7 @@ module.exports = class UnmuteCommand extends Command {
                       // Replace 'Main_Role' with the name of your server's main role.
           let add1 = message.guild.roles.cache.find(x => x.name === roleName2);
 		            if (!message.member.hasPermission("MANAGE\_MEMBERS")) {
-			            return message.reply('I am unable to mute this user.');
+			            return message.reply('I am unable to unmute this user.');
 		            }
           const args = message.content.slice(prefix.length).trim().split(/ +/);
           let reason = args.join(" ").slice(29);
