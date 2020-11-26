@@ -14,7 +14,13 @@ module.exports = class InfoCommand extends Command {
        const { guild, channel } = message
        const user = message.mentions.users.first() || message.member.user
        const member = guild.members.cache.get(user.id)
-       const exampleEmbed = new Discord.MessageEmbed()
+       let rolemap = member.roles.cache
+            .sort((a, b) => b.position - a.position)
+            .map(r => r)
+            .join(" ");
+            if (rolemap.length > 1024) rolemap = "To many roles to display";
+            if (!rolemap) rolemap = "No roles";
+       const Embed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('User Info')
 	.setAuthor(`${message.guild.name}`, `${message.guild.iconURL({ format: "png", dynamic: true })}`)
@@ -25,12 +31,13 @@ module.exports = class InfoCommand extends Command {
         { name: 'Account Creation Date', value: `${user.createdAt}`},
 		{ name: 'User Id', value: `${user.id}`},
         { name: 'Is Staff?' , value: `${member.roles.cache.some(role => role.name === 'Staff')}`, inline: true },
-        { name: 'Role Count', value: `${member.roles.cache.size -1}`, inline: true },
+        { name: 'Role Count', value: `${member.roles.cache.size}`, inline: true },
         { name: 'Is Bot?' , value: `${user.bot}`, inline: true },
+		{ name: 'Role List', value: `${rolemap}`},
 	)
 	.setTimestamp()
 	.setFooter(`${user.tag}`);
 
-message.channel.send(exampleEmbed)
+message.channel.send(Embed)
 	}
 };
