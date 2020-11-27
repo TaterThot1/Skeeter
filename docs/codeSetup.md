@@ -1,34 +1,26 @@
 # Code Setup
 
-This will cover a more detailed set of instructions to setting up the code. Starting in the index.js file you need to look for...
-
-```
-const client = new CommandoClient({
-	commandPrefix: '%',
-	owner: 'Your_Id', //put your id here
-});
-```
-
-So firstly you need to copy your id. Your id should be 18 digits long something like this *123456789012345678*
-
-then paste your id in the code
-
-```
-const client = new CommandoClient({
-	commandPrefix: '%',
-	owner: '123456789012345678', //put your id here
-});
-```
-
-Now moving on to the config.js file look for...
+This will cover a more detailed set of instructions to setting up the code. Only file you need to change is config.json...
 
 ```
 {
 "prefix": "%",
-"token": "Sample_Token" //put your bot token here
+"token": "Bot_Token",
+"logName" : "Log_Channel_Name",
+"greet" : "Welcom_Channel_Name",
+"roleName1" : "Muted",
+"roleName2" : "Main_Role_1",
+"roleName3" : "Main_Role_2",
+"roleName4" : "Main_Role_3",
+"Your_ID" : "Your_Account_ID"
 }
 ```
-next copy your bots token from the discord developer page and paste it
+ First set the prefix default is %
 
+ Next paste your bots token where it says Bot_Token
 
-***Sample_Token is just a place holder, tokens are much longer with a mix of numbers and letters.***
+After those we have to label two channels. so just put the channel name in the correct spot and ur good to go
+
+Now the just label 4 roles with your first role being mute role and the rest are just non staff member roles that allow talking/typing
+
+And lastly just copy your id and paste it
