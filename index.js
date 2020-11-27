@@ -3,13 +3,16 @@ const Discord = require('discord.js');
 const {
 	prefix,
 	token,
+	logName,
+	greet,
+	Your_ID
 } = require('./config.json');
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
 
 const client = new CommandoClient({
-	commandPrefix: '%',
-	owner: 'Your_Id',
+	commandPrefix: prefix,
+	owner: Your_ID,
 });
 
 client.registry
@@ -26,8 +29,8 @@ client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
 });
 client.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === 'Welcome_Channel_Name');
-  const log = member.guild.channels.cache.find(ch => ch.name === 'Log_Channel_Name');
+  const channel = member.guild.channels.cache.find(ch => ch.name === greet);
+  const log = member.guild.channels.cache.find(ch => ch.name === logName);
   if (!channel) return;
   channel.send({embed: {color: '#FFFF00', title: 'Goodbye', description: `${member}, Sorry to see you go.`}})
   if (!log) return;
@@ -35,8 +38,8 @@ client.on('guildMemberRemove', member => {
 });
 
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === 'Welcome_Channel_Name');
-  const log = member.guild.channels.cache.find(ch => ch.name === 'Log_Channel_Name');
+  const channel = member.guild.channels.cache.find(ch => ch.name === greet);
+  const log = member.guild.channels.cache.find(ch => ch.name === logName);
   if (!channel) return;
   channel.send({embed: {color: '#74FF00', title: 'Hello', description: `${member}, Welcome to the server`}})
   if (!log) return;
@@ -44,8 +47,8 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on("guildBanAdd", function (guild, user) {
-  const channel = guild.channels.cache.find(ch => ch.name === 'Welcome_Channel_Name');
-  const log = guild.channels.cache.find(ch => ch.name === 'Log_Channel_Name');
+  const channel = guild.channels.cache.find(ch => ch.name === greet);
+  const log = guild.channels.cache.find(ch => ch.name === logName);
   if (!channel) return;
   channel.send({embed: {color: '#FF0000', title: 'Oof!!', description: `${user}, Got the wrong end of the ban hammer.`}})
   if (!log) return;
@@ -54,8 +57,8 @@ console.log(`a member is banned from a guild`);
 });
 
 client.on("guildBanRemove", function (guild, user) {
-  const channel = guild.channels.cache.find(ch => ch.name === 'Welcome_Channel_Name');
-  const log = guild.channels.cache.find(ch => ch.name === 'Log_Channel_Name');
+  const channel = guild.channels.cache.find(ch => ch.name === greet);
+  const log = guild.channels.cache.find(ch => ch.name === logName);
   if (!channel) return;
   channel.send({embed: {color: '#00FBFF', title: 'Oof!!', description: `${user}, has been unbanned, so dont fuck it up again.`}})
   if (!log) return;
@@ -71,8 +74,3 @@ client.once('ready', () => {
 client.on('error', console.error);
 
 client.login(token);
-
-
-// on line 9 change 'Your_ID' with your account id.
-// on lines 26, 35, 44, and 54 change 'Welcome_Channel_Name' with the name of your welcome channel.
-// on lines 27, 36, 45, and 55 change 'Log_Channel_Name' with the name of your log channel.
