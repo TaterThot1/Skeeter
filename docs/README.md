@@ -11,7 +11,7 @@ TimeStamp- November 7th, 2020
 
   *Please have npm installed*
 
-**Part 1 of 3**
+**Part 1 of 2**
 
 Step 1- Download a zip package of the repository.
 
@@ -19,26 +19,9 @@ Step 2- Unzip the package.
 
 Step 3- Open linux terminal and use [*npm i discord.js*] next [*npm i node.js*] then [*npm i discordjs/Commando*]
 
-**Part 2 of 3**
+**Part 2 of 2**
 
-Step 1- Open {config.js} in a txt/code editor.
-
-Step 2- Copy your bot token.
-
-Step 3- Replace "*Your_Bot_Token*" with your bot token.
-
-**Part 3 of 3**
-
-Step 1- Open {index.js} in a txt/code editor.
-
-Step 2- Copy your id.
-
-Step 3- Go to "*Your_Id*" in the code and replace it with your id.
-
-Step 4- Copy your welcome and log channel names.
-
-Step 5- Go through the code and replace "*Welcome_Channel_Name*" and "*Log_Channel_Name*" with intented channel names.
-
+open the config.json and fill in the required information if you need more help go to ./docs/codeSetup
 # Starting The Bot
 **Part 1 of 1**
 
