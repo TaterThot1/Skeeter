@@ -13,12 +13,14 @@ module.exports = class KickCommand extends Command {
 		});
 	}
     run(message, client) {
-       const log = message.guild.channels.cache.find(ch => ch.name === '📇join-and-leave-log📇');
-       const Discord = require('discord.js')
-       const { prefix} = require('../../config.json');
+       const { prefix,
+           logName,
+            } = require('../../config.json');
+       const log = message.guild.channels.cache.find(ch => ch.name === logName);
+       const Discord = require('discord.js');
        const args = message.content.slice(prefix.length).trim().split(/ +/);
        let reason = args.join(" ").slice(27);
-       if (reason.length < 1) return message.reply('what is the reason???')
+       if (reason.length < 1) return message.reply('what is the reason???');
        const tuser = message.guild.member(message.mentions.users.first());
        const user = message.mentions.users.first();
         if (!user) {
@@ -31,10 +33,3 @@ module.exports = class KickCommand extends Command {
 			.then(() => log.send({embed: {color: '#FF0000', title: 'Kick Log', description: `${user} has been kicked.`}}));
 	}
 };
-  clientPerms: {
-    guild: ['banMembers']
-  }
-  userPerms: {
-    guild: ['kickMembers']
-  }
-  disableDM: true
