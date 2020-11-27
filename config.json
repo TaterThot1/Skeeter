@@ -1,4 +1,11 @@
 {
 "prefix": "%",
-"token": "Your_Bot_Token"//Your_Bot_Token_Goes_Here
+"token": "Bot_Token",
+"logName" : "Log_Channel_Name",
+"greet" : "Welcom_Channel_Name",
+"roleName1" : "Muted",
+"roleName2" : "Main_Role_1",
+"roleName3" : "Main_Role_2",
+"roleName4" : "Main_Role_3",
+"Your_ID" : "Your_Account_ID"
 }
