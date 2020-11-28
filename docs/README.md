@@ -21,7 +21,7 @@ Step 3- Open linux terminal and use [*npm i discord.js*] next [*npm i node.js*] 
 
 **Part 2 of 2**
 
-open the config.json and fill in the required information if you need more help go to ./docs/codeSetup
+open the config.json and fill in the required information if you need more help go to `../docs/codeSetup`
 # Starting The Bot
 **Part 1 of 1**
 
