@@ -12,6 +12,7 @@ module.exports = class InfoCommand extends Command {
 	}
     async run (message) {
        const { guild, channel } = message
+       const { staffRole } = require('../../config.json');
        const user = message.mentions.users.first() || message.member.user
        const member = guild.members.cache.get(user.id)
        let rolemap = member.roles.cache
@@ -30,7 +31,7 @@ module.exports = class InfoCommand extends Command {
 		{ name: 'Joined', value: `${member.joinedAt}` },
         { name: 'Account Creation Date', value: `${user.createdAt}`},
 		{ name: 'User Id', value: `${user.id}`},
-        { name: 'Is Staff?' , value: `${member.roles.cache.some(role => role.name === 'Staff')}`, inline: true },
+        { name: 'Is Staff?' , value: `${member.roles.cache.some(role => role.name === staffRole)}`, inline: true },
         { name: 'Role Count', value: `${member.roles.cache.size}`, inline: true },
         { name: 'Is Bot?' , value: `${user.bot}`, inline: true },
 		{ name: 'Role List', value: `${rolemap}`},
