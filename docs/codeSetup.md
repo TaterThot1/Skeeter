@@ -12,7 +12,8 @@ This will cover a more detailed set of instructions to setting up the code. Only
 "roleName2" : "Main_Role_1",
 "roleName3" : "Main_Role_2",
 "roleName4" : "Main_Role_3",
-"Your_ID" : "Your_Account_ID"
+"Your_ID" : "Your_Account_ID",
+"Status" : "Moderators"
 }
 ```
  First set the prefix default is %
@@ -23,4 +24,6 @@ After those we have to label two channels. so just put the channel name in the c
 
 Now the just label 4 roles with your first role being mute role and the rest are just non staff member roles that allow talking/typing
 
-And lastly just copy your id and paste it
+THen just copy your id and paste it
+
+Lastly just change the bots presence if you wish
