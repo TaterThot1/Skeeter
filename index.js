@@ -5,7 +5,8 @@ const {
 	token,
 	logName,
 	greet,
-	Your_ID
+	Your_ID,
+	Status
 } = require('./config.json');
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
@@ -67,7 +68,7 @@ console.log(`a member is unbanned from a guild`);
 });
 client.once('ready', () => {
     console.log('Succesfully Set Presence')
-    client.user.setActivity('Moderators', {type: "LISTENING"})
+    client.user.setActivity(Status, {type: "LISTENING"})
 
 });
 
