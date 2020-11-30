@@ -8,7 +8,7 @@ only thing you need to change things in is [config.json](https://github.com/Tate
 "prefix": "%",
 "token": "Bot_Token",
 "logName" : "Log_Channel_Name",
-"greet" : "Welcom_Channel_Name",
+"greet" : "Welcome_Channel_Name",
 "roleName1" : "Muted",
 "roleName2" : "Main_Role_1",
 "roleName3" : "Main_Role_2",
@@ -40,7 +40,7 @@ Now we neeed to label the welcome and log channels. All you need to type is the 
 
 *Welcome-*
 
-`"greet" : "Welcom_Channel_Name",`
+`"greet" : "Welcome_Channel_Name",`
 ##### Step 4 of 8
 Now you need to add the name of your mute role.
 
