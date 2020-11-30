@@ -10,11 +10,11 @@ module.exports = class InfoCommand extends Command {
 			description: 'info about user.',
 		});
 	}
-    async run (message) {
-       const { guild, channel } = message
-       const { staffRole } = require('../../config.json');
-       const user = message.mentions.users.first() || message.member.user
-       const member = guild.members.cache.get(user.id)
+    run (message) {
+       const { guild, channel } = message;
+        const { staffRole } = require('../../config.json');
+       const user = message.mentions.users.first() || message.member.user;
+       const member = guild.members.cache.get(user.id);
        let rolemap = member.roles.cache
             .sort((a, b) => b.position - a.position)
             .map(r => r)
@@ -28,17 +28,18 @@ module.exports = class InfoCommand extends Command {
 	.setDescription(`${user.username}`)
 	.setThumbnail(`${user.displayAvatarURL({ format: "png", dynamic: true })}`)
     .addFields(
+		{ name: 'Voice', value: `${member.voice.channel || 'Not in a VC'}` },
 		{ name: 'Joined', value: `${member.joinedAt}` },
         { name: 'Account Creation Date', value: `${user.createdAt}`},
 		{ name: 'User Id', value: `${user.id}`},
         { name: 'Is Staff?' , value: `${member.roles.cache.some(role => role.name === staffRole)}`, inline: true },
         { name: 'Role Count', value: `${member.roles.cache.size}`, inline: true },
         { name: 'Is Bot?' , value: `${user.bot}`, inline: true },
-		{ name: 'Role List', value: `${rolemap}`},
-	)
+		{ name: 'Role List', value: `${rolemap}`}
+		)
 	.setTimestamp()
 	.setFooter(`${user.tag}`);
 
-message.channel.send(Embed)
+message.channel.send(Embed);
 	}
 };
