@@ -2,7 +2,7 @@
 "prefix": "%",
 "token": "Bot_Token",
 "logName" : "Log_Channel_Name",
-"greet" : "Welcom_Channel_Name",
+"greet" : "Welcome_Channel_Name",
 "roleName1" : "Muted",
 "roleName2" : "Main_Role_1",
 "roleName3" : "Main_Role_2",
