@@ -1,6 +1,4 @@
-    const Client = require('../../client/Client');
     const Discord = require('discord.js');
-    const getUserFromMention = require('../../util/getUser');
     const { Command } = require('discord.js-commando');
 module.exports = class AnnounceCommand extends Command {
 	constructor(client) {
@@ -13,18 +11,19 @@ module.exports = class AnnounceCommand extends Command {
 		});
 	}
    async run(message, client) {
+       const { guild, channel } = message;
        const { prefix} = require('../../config.json');
        const Discord = require('discord.js')
-       const tuser = message.guild.member(message.mentions.users.first());
-       const user = message.mentions.users.first();
+       const user = message.member.user;
+       const member = guild.members.cache.get(user.id)
        const args = message.content.slice(prefix.length).trim().split(/ +/);
        let say = args.join(" ").slice(8);
        if (say.length < 1) return message.reply('what is the message???')
 
        if (!message.member.hasPermission("MANAGE\_MEMBERS")) {
-			return message.reply('I am unable to ban this user.');
+			return message.reply('I am unable to announce this.');
 		}
-
+            message.delete();
        const announce = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('Announcement')
@@ -32,7 +31,7 @@ module.exports = class AnnounceCommand extends Command {
 	.setDescription(`${say}`)
 	.setTimestamp()
 	.setFooter('Thank You');
-  message.channel.send('@everyone')
-  message.channel.send(announce)
+ await message.channel.send('@everyone')
+ await message.channel.send(announce)
 	}
 };
