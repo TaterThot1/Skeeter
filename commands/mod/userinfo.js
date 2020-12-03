@@ -10,11 +10,12 @@ module.exports = class InfoCommand extends Command {
 			description: 'info about user.',
 		});
 	}
-    run (message) {
+    async run (message) {
        const { guild, channel } = message;
-        const { staffRole } = require('../../config.json');
+       const { staffRole } = require('../../config.json');
        const user = message.mentions.users.first() || message.member.user;
        const member = guild.members.cache.get(user.id);
+       const m = await member.lastMessage || 'No recent messages or last message was deleted.';
        let rolemap = member.roles.cache
             .sort((a, b) => b.position - a.position)
             .map(r => r)
@@ -35,7 +36,8 @@ module.exports = class InfoCommand extends Command {
         { name: 'Is Staff?' , value: `${member.roles.cache.some(role => role.name === staffRole)}`, inline: true },
         { name: 'Role Count', value: `${member.roles.cache.size}`, inline: true },
         { name: 'Is Bot?' , value: `${user.bot}`, inline: true },
-		{ name: 'Role List', value: `${rolemap}`}
+		{ name: 'Role List', value: `${rolemap}`},
+		{ name: 'Last Message', value: `${m}`}
 		)
 	.setTimestamp()
 	.setFooter(`${user.tag}`);
@@ -43,3 +45,4 @@ module.exports = class InfoCommand extends Command {
 message.channel.send(Embed);
 	}
 };
+
