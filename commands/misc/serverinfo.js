@@ -16,8 +16,8 @@ module.exports = class ServerInfoCommand extends Command {
             .sort((a, b) => b.position - a.position)
             .map(r => r)
             .join("");
-            if (rolemap.length > 1024) rolemap = "To many roles to display";
-            if (!rolemap) rolemap = "No roles";
+            if (rolemap.length > 1024) rolemap = "Sorry but there is too many roles to display";
+            if (!rolemap) rolemap = "Error: no roles found";
        const Embed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('Server Info')
