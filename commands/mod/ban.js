@@ -13,8 +13,12 @@ module.exports = class BanCommand extends Command {
 		});
 	}
     run(message, client) {
+            const { prefix,
+                    logName,
+            } = require('../../config.json');
+            const log = message.guild.channels.cache.find(ch => ch.name === logName);
 	    	const mod = message.member.user;
-		const member = message.mentions.users.first();
+		    const member = message.mentions.users.first();
 	    	const args = message.content.slice(prefix.length).trim().split(/ +/);
        		let reason = args.join(" ").slice(26);
        		if (reason.length < 1) return message.reply('what is the reason???');
@@ -28,7 +32,7 @@ module.exports = class BanCommand extends Command {
 		}
 
 		return message.guild.members.ban(member)
-			.then(() => message.reply(`${mod} has banned ${member.username} for ${reason}`))
+			.then(() => log.send({embed: {color: '#FF0000', title: 'Kick Log', description: `${member} has been kicked by ${mod}.`}}))
 			.catch(error => message.reply('Sorry, an error has unfortunately occured.'));
     }
 };
