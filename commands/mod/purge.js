@@ -10,8 +10,9 @@ module.exports = class PurgeCommand extends Command {
 		});
 	}
 	async run (message) {
-        const { logName } = require('../../config.json');
-        const log = message.guild.channels.cache.find(ch => ch.name === logName);
+        	const { logName } = require('../../config.json');
+        	const log = message.guild.channels.cache.find(ch => ch.name === logName);
+		const mod = message.member.user;
 		const args = message.content.split(' ');
 		let deleteCount = 0;
 		try {
@@ -31,6 +32,6 @@ module.exports = class PurgeCommand extends Command {
 		message.channel.bulkDelete(fetched)
 			.catch(error => message.reply(`Messages where not deleted: ${error}`));
         return message.reply(`purged ${deleteCount} messages`)
-	.then(() => log.send({embed: {color: '#FF0000', title: 'Message Log', description: `${deleteCount} messages purged in ${message.channel}.`}}));
+	.then(() => log.send({embed: {color: '#FF0000', title: 'Message Log', description: `${deleteCount} messages purged in ${message.channel} by ${mod}.`}}));
 	}
 };
